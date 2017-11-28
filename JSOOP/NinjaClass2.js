@@ -27,8 +27,8 @@ ninjaConstructor.prototype.punch = function(ninjaConstructor){
     return this
 }
 
-ninjaConstructor.prototype.kick = function(kicker, reciever){
-    var damage = kicker.strength * 15
+ninjaConstructor.prototype.kick = function(reciever){
+    var damage = this.strength * 15
     reciever.health -= damage
     return this
 }
