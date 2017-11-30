@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            // this triggers the connection event in our server!
+            var socket = io.connect();
+
+            $('#btn').click(function () {
+                var formname = $("input[name=name]").val()
+                var formlocation = $("select[name=location]").val()
+                var formlanguage = $("select[name=language]").val()
+                var formcomment = $("select[name=comment]").val()
+                socket.emit("button_clicked", {
+                    name : formname,
+                    location : formlocation,
+                    language : formlanguage,
+                    comment : formcomment
+                });
+            });
+            socket.on('server_response', function (data) {
+                $('body').append(
+                        "<div><p>"+ data.response+"</p></div>"
+                    );
+                console.log(data.response);
+            });
+        })
+    </script>
+</head>
+
+<body>
+    <fieldset>
+        <legend>Dojo Survey</legend>
+        <form>
+            Name:<input type="text" name="name"> <br />
+            Dojo Location
+            <select name="location" form="survey">
+                <option value="Seattle">Seattle</option>
+                <option value="Chicago">Chicago</option>
+                <option value="Dallas">Dallas</option>
+                <option value="New York">New York</option>
+            </select> <br />
+            Favorite Language:
+            <select name="language" form="survey">
+                <option value="Python">Python</option>
+                <option value="JavaScript">JavaScript</option>
+                <option value="CSS">CSS</option>
+                <option value="HTML">HTML</option>
+            </select> <br />
+            Comment (optional): <br />
+            <textarea name="comment" id="survey" cols="30" rows="10">
+
+            </textarea> <br />
+        </form> 
+        <button id="btn">Submit</button>
+    </fieldset> 
+</body>
+
+</html>
