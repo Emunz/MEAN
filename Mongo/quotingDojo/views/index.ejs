@@ -7,12 +7,23 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Welcome to Quoting Dojo</h1>
-    <form action="/addquote" method="post">
-        Your Name: <input type="text" name="name">
-        Your Quote: <input type="text" name="quote">
-        <input type="submit" value="Add my quote!">
-    </form>
-    <button><a href="/quotes">Skip to Quotes!</a></button>
+    <table>
+        <thead>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Hometown</th>
+            <th>Favorite Food</th>
+        </thead>
+        <% if(rabbits){ %>
+            <% for(var i in rabbits){ %>
+                <tr>
+                    <td><a href="/rabbit/<%= rabbits[i]._id %>">rabbits[i].name %></a></td>
+                    <td><%= rabbits[i].age %></td>
+                    <td><%= rabbits[i].hometown %></td>
+                    <td><%= rabbits[i].favoriteFood %></td>
+                </tr>
+            <% } %>
+        <% } %>
+    </table>
 </body>
 </html>

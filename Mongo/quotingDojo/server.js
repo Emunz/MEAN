@@ -15,42 +15,45 @@ app.set('views', path.join(__dirname, './views'));
 
 app.set('view engine', 'ejs');
 
-mongoose.connect('mongodb://localhost/quotes');
-var QuoteSchema = new mongoose.Schema({
+mongoose.connect('mongodb://localhost/rabbit_db');
+rabbit.Promise = global.Promise;
+
+var RabbitSchema = new rabbit.Schema({
     name: String,
-    quote: String
+    age: Number,
+    hometown: String,
+    favoriteFood: String
 })
-mongoose.Promise = global.Promise;
-mongoose.model('Quote', QuoteSchema);
-var Quote = mongoose.model('Quote')
+
+rabbit.model('Rabbit', RabbitSchema);
+var Rabbit = rabbit.model('Rabbit')
 
 app.get('/', function (req, res) {
-    
-    res.render('index');
+    Rabbit.find({}, function(error, rabbits){
+        
+    res.render('index', {rabbits: rabbits})
 })
 
 // Add User Request 
-app.post('/addquote', function (req, res) {
+app.post('/rabbit/createnew', function (req, res) {
     console.log("POST DATA", req.body);
 
-    var quote = new Quote({name: req.body.name, quote: req.body.quote});
+    var rabbit = new Rabbit({name: req.body.name, age: req.body.age, hometown: req.body.hometown, favoriteFood: req.body.favoriteFood});
 
-    quote.save(function(err) {
+    rabbit.save(function(err) {
       // if there is an error console.log that something went wrong!
         if(err) {
         console.log('something went wrong');
-        res.redirect('/');
+        res.redirect('/rabbit/new');
         } else { // else console.log that we did well and then redirect to the root route
         console.log('successfully added a quote!');
-        res.redirect('/quotes');
+        res.redirect('/');
         }
     })
 })
 
 app.get('/quotes', function (req, res) {
-    Quote.find({}, function(error, quotes){
-        
-    res.render('quotes', {quotes: quotes})
+    
     })
 })
 

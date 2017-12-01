@@ -10,9 +10,9 @@
     <h1>Here are all the awesome quotes</h1>
 
     <% if(quotes){ %>
-        <% for(var quote in quotes){ %>
-            <p>"<%= quotes[quote].quote %>"</p>
-            <p>-<%= quotes[quote].name %></p>
+        <% for(var i in quotes){ %>
+            <p>"<%= quotes[i].quote %>"</p>
+            <p>-<%= quotes[i].name %></p>
             <hr />
         <% } %>
     <% } %>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1><%= rabbit.name %>'s profile</h1>
+    <h4>Age: <%= rabbit.age %></h4>
+    <h4>Hometown: <%= rabbit.hometown %></h4>
+    <h4>Favorite Food: <%= rabbit.favoriteFood %></h4>
+
+    <button><a href="/rabbit/destroy/<%= rabbit._id %>">Delete User</a></button>
+</body>
+</html>

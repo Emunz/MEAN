@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Add your User information</h1>
+    <form action="/rabbit/createnew" method="post">
+        Name: <input type="text" name="name"><br />
+        Age: <input type="number" name="age"><br />
+        Hometown <input type="text" name="hometown"><br />
+        Favorite Food: <input type="text" name="favoriteFood"><br />
+        <input type="submit" value="Become A User!">
+    </form>
+    <% if(typeof(errors) != 'undefined' ) { %>
+        <% for (var x in errors) { %>
+         <h3><%= errors[x].message %></h3>
+        <% } %>
+    <% } %>
+</body>
+</html>
