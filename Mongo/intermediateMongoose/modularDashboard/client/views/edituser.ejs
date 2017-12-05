@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <a href="/">Home</a>
+    <br />
+    <h1><%= rabbit.name %>: would you like to edit your profile? %></h1>
+
+    <h4>Edit below</h4>
+    <form action="/rabbit/update/<%= rabbit._id %>" method="post">
+        Age: <input type="number" name="age"><br />
+        Hometown: <input type="text" name="hometown"><br />
+        Favorite Food: <input type="text" name="favoriteFood"><br />
+        <input type="submit" value="Edit profile">
+    </form>
+    <% if(typeof(errors) != 'undefined' ) { %>
+        <% for (var x in errors) { %>
+         <h3><%= errors[x].message %></h3>
+        <% } %>
+    <% } %>
+</body>
+</html>
