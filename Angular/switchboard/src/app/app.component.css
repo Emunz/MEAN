@@ -1,0 +1,11 @@
+button {
+    height: 70px;
+    width: 120px;
+    background-color: red;
+    border: 1px solid black;
+    margin: 5px;
+}
+
+.green {
+    background-color: green;
+}
