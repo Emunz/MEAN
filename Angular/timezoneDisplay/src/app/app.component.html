@@ -1,0 +1,19 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>
+    US Time Zone Display
+  </h1>
+
+  <button (click)="onButtonClick('PST')">PST</button>
+  <button (click)="onButtonClick('MST')">MST</button>
+  <button (click)="onButtonClick('CST')">CST</button>
+  <button (click)="onButtonClick('EST')">EST</button>
+  <button (click)="onButtonClick('Clear')">Clear</button>
+
+  <h1 *ngIf='flag'>{{ today | date:'fullDate' }}</h1>
+
+  <h1 *ngIf='flag'>{{ today | date:'shortTime' }}</h1>
+
+</div>
+
+
