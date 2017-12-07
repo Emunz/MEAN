@@ -1,0 +1,26 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center; margin: 50px auto; display: block; width: 500px">
+  <h1>Dojo Mail</h1>
+  <table>
+    <thead>
+      <th>Email</th>
+      <th>Importance</th>
+      <th>Subject</th>
+      <th>Content</th>
+    </thead>
+    <tr *ngFor="let x of emailArray">
+      <td *ngIf="x.importance">{{ x.email }}</td>
+      <td *ngIf="x.importance">High</td>
+      <td *ngIf="x.importance">{{ x.subject }}</td>
+      <td *ngIf="x.importance">{{ x.content }}</td>
+    </tr>
+    <tr *ngFor="let x of emailArray">
+        <td *ngIf="!x.importance">{{ x.email }}</td>
+        <td *ngIf="!x.importance">Low</td>
+        <td *ngIf="!x.importance">{{ x.subject }}</td>
+        <td *ngIf="!x.importance">{{ x.content }}</td>
+      </tr>
+  </table>
+</div>
+
+
