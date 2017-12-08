@@ -1,0 +1,183 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>
+    Registration
+  </h1>
+</div>
+<div [ngClass]="{'hidden': hidden, 'green': true, 'confirmation': true}"> Thank you, {{ users[users.length - 1].firstName }}. You successfully registered. A confirmation email will be sent 
+  to {{users[users.length - 1].email}} </div>
+<div class="container">
+  <h1 class="block">Account Information</h1>
+  <form (submit)="onSubmit()" class="ng-untouched ng-pristine ng-invalid" #regForm="ngForm">
+    <div class="block">
+      <label for="firstName">First Name:</label>
+      <input 
+        type="text" 
+        name="firstName" 
+        required 
+        class="ng-untouched ng-pristine ng-invalid"
+        pattern="^[a-zA-Z]+$"
+        minlength="2" 
+        maxlength="24"
+        [(ngModel)]="user.firstName"
+        #firstName='ngModel'
+      />
+
+      <span *ngIf="firstName.errors && firstName.invalid && firstName.dirty" class="error">First Name is required and must have a minimum length of 2</span>
+      
+    </div>
+
+    <div class="block">
+      <label for="lastName">Last Name:</label>
+      <input 
+        type="text" 
+        name="lastName" 
+        required 
+        class="ng-untouched ng-pristine ng-invalid"
+        pattern="^[a-zA-Z]+$"
+        minlength="2" 
+        maxlength="24"
+        [(ngModel)]="user.lastName"
+        #lastName='ngModel'
+      />
+      <span *ngIf="lastName.errors && lastName.invalid && lastName.dirty" class="error">Last Name is required and must have a minimum length of 2</span>
+      
+    </div>
+
+    <div class="block">
+      <label for="email">Email:</label>
+      <input 
+        type="text" 
+        name="email" 
+        required 
+        pattern="([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+"
+        class="ng-untouched ng-pristine ng-invalid"
+        minlength="3" 
+        maxlength="24"
+        [(ngModel)]="user.email"
+        #email='ngModel'
+      />
+      <span *ngIf="email.errors && email.invalid && email.dirty" class="error">Email is required in proper format</span>
+      
+    </div>
+
+    <div class="block">
+      <label for="password">Password:</label>
+      <input 
+        type="password" 
+        name="password" 
+        required 
+        class="ng-untouched ng-pristine ng-invalid"
+        minlength="10" 
+        maxlength="24"
+        [(ngModel)]="user.password"
+        #password='ngModel'
+      />
+      <span *ngIf="password.errors && password.invalid && password.dirty" class="error">Password must be at least 10 characters long</span>
+    </div>
+
+    <div class="block">
+      <label for="confirmPassword">Password:</label>
+      <input 
+        type="password" 
+        name="confirmPassword" 
+        required 
+        class="ng-untouched ng-pristine ng-invalid"
+        minlength="10" 
+        maxlength="24"
+        [(ngModel)]="user.confirmPassword"
+        #confirmPassword='ngModel'
+      />
+      <span *ngIf="confirmPassword.errors && confirmPassword.invalid && confirmPassword.dirty" class="error">Must match the password</span>
+    </div>
+
+    <div class="block">
+      <label for="streetAddress">Street Address:</label>
+      <input 
+        type="text" 
+        name="streetAddress" 
+        required 
+        class="ng-untouched ng-pristine ng-invalid"
+        minlength="6" 
+        maxlength="24"
+        [(ngModel)]="user.streetAddress"
+        #streetAddress='ngModel'
+      />
+      <span *ngIf="email.errors && email.invalid && email.dirty" class="error">Email is required in proper format</span>
+    </div>
+
+    <div class="block">
+      <label for="unit">Unit:</label>
+      <input 
+        type="text" 
+        name="unit" 
+      />
+    </div>
+
+    <div class="block">
+      <label for="city">City:</label>
+      <input
+        type="text" 
+        name="city" 
+        required 
+        class="ng-untouched ng-pristine ng-invalid"
+        minlength="2" 
+        maxlength="24"
+        [(ngModel)]="user.city"
+        #city='ngModel'
+      />
+      <span *ngIf="city.errors && city.invalid && city.dirty" class="error">City is required</span>
+    </div>
+
+    <div class="block">
+      <label for="state">State:</label>
+      <select 
+        type="text" 
+        name="state" 
+        required 
+        class="ng-untouched ng-pristine ng-invalid"
+        minlength="2" 
+        maxlength="24"
+        [(ngModel)]="user.state"
+        #state='ngModel'
+      >
+        <option *ngFor="let state of allStates" [value]="state">{{ state }}</option>
+      </select>
+      <span *ngIf="state.errors && state.invalid && state.dirty" class="error">State is required</span>
+    </div>
+
+    <div class="block">
+      <label for="lucky">I'm feeling lucky:</label>
+      Yes:
+      <input 
+        type="radio"
+        name="lucky"
+        value="yes"
+        required
+        class="ng-untouched ng-pristine ng-invalid"
+        [(ngModel)]="user.lucky"
+        #lucky='ngModel'
+      />
+      No:
+      <input 
+        type="radio"
+        name="lucky"
+        value="no"
+        class="ng-untouched ng-pristine ng-invalid"
+        [(ngModel)]="user.lucky"
+        #lucky='ngModel'
+      />
+      <span *ngIf="lucky.errors && lucky.invalid && lucky.dirty" class="error">Luckiness is required</span>
+    </div>
+    <div class="block">
+      <input type="submit" *ngIf="regForm.valid">
+    </div>
+  </form>
+  <div class="block">
+    <ul *ngFor="let user of users">
+      <li>{{user.firstName}} {{ user.lastName }} {{user.email}}</li>
+    </ul>
+  </div>
+</div>
+    
+
