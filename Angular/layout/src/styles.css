@@ -1,0 +1,40 @@
+/* You can add global styles to this file, and also import other style files */
+
+.header {
+    width: 900px;
+    background-color: lightblue;
+    margin: 20px;
+    padding: 20px;
+}
+
+.nav {
+    width: 200px;
+    height: 500px;
+    background-color: lightblue;
+    padding: 20px;
+    text-align: center;
+    margin: 0 0 0 20px;
+    display: inline-block;
+}
+
+.nav button {
+    display: block;
+    margin: 10px auto;
+    width: 100px;
+}
+
+
+.main {
+    width: 675px;
+    height: 500px;
+    display: inline-block;
+    vertical-align: top;
+    background-color: lightblue;
+    padding: 20px;
+    margin: 0 20px;
+}
+
+.wrapper {
+    width: 950px;
+    margin: 0 auto;
+}

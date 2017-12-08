@@ -103,7 +103,7 @@
         [(ngModel)]="user.streetAddress"
         #streetAddress='ngModel'
       />
-      <span *ngIf="email.errors && email.invalid && email.dirty" class="error">Email is required in proper format</span>
+      <span *ngIf="streetAddress.errors && streetAddress.invalid && streetAddress.dirty" class="error">Street Address is required</span>
     </div>
 
     <div class="block">

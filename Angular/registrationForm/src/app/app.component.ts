@@ -23,7 +23,7 @@ export class AppComponent {
     lucky: ''
   }
 
-  onSubmit(){
+  onSubmit(regForm){
     console.log(this.user)
     this.users.push(this.user)
     this.user = {
