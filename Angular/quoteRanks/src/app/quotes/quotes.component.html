@@ -1,0 +1,10 @@
+<div>
+  <p>"{{sentQuote.content}}"</p>
+  <p>-{{sentQuote.author}}</p>
+  <p>Votes: {{sentQuote.votes}}</p>
+
+  <button (click)="quoteUpvote()">Upvote</button>
+  <button (click)="quoteDownvote()">Downvote</button>
+  <button (click)="quoteDelete()">Delete</button>
+  <hr />
+</div>
