@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="powerform">
+      <h1>Power Component</h1>
+      <form (submit)="onSubmit()">
+        Initial Power Level:
+        <select name="power" [(ngModel)]="enteredPower">
+          <option *ngFor="let number of numbers" value="{{number}}">{{ number }}</option>
+        </select>
+        <input type="submit" value="Calculate Powers">
+      </form>
+      <img src="http://vignette1.wikia.nocookie.net/dbz-dokkanbattle/images/6/68/Leaping_Even_Higher_Super_Saiyan_Goku.png/revision/latest?cb=20160830122933" alt="">
+    </div>
+  <app-human [sentPower]="power"></app-human>
+  <app-saiyan [sentPower]="power"></app-saiyan>
+  <app-super-saiyan [sentPower]="power"></app-super-saiyan>
+  <app-super-saiyan-two [sentPower]="power"></app-super-saiyan-two>
+  <app-super-saiyan-three [sentPower]="power"></app-super-saiyan-three>
+  <app-super-saiyan-four [sentPower]="power"></app-super-saiyan-four>
+</div>
+

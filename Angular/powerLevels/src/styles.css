@@ -1,0 +1,42 @@
+/* You can add global styles to this file, and also import other style files */
+
+.container {
+    width: 900px;
+    height: 760px;
+    background-color: blanchedalmond;
+    margin: 0 auto;
+}
+
+.powerform {
+    height: 300px;
+    margin: 10px;
+    padding: 50px;
+}
+
+.powerform form {
+    width: 575px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.powerform img {
+    display: inline-block;
+    margin-top: -70px;
+
+}
+
+.powerinfo {
+    width: 275px;
+    height: 150px;
+    display: inline-block;
+    vertical-align: top;
+    border: 1px solid black;
+    text-align: center;
+    margin: 10px;
+}
+
+.powerinfo h4 {
+    font-size: 20px;
+}
+
+
