@@ -1,0 +1,23 @@
+<div class="inline">
+  <h1>
+    Github Score!
+  </h1>
+  <form (submit)="getScore()">
+    GitHub Username:
+    <input type="text" required name='gitusername' [(ngModel)]='username' #gitusername='ngModel'>
+    <br>
+    <br>
+    <input type="submit" value="Get My GitHub Score">
+  </form>
+</div>
+<div class="inline">
+    <h1>Your Score:</h1>
+    <h3 *ngIf="successmessage" style="color:green">{{successmessage}}</h3>
+    <h3 *ngIf="errormessage" style="color:red">{{message}}</h3>
+    <h2 *ngIf="successmessage" style="color:green">{{scorestring}}</h2>
+    <h2 *ngIf="score <= 20" style="color:red">Needs a little work...</h2>
+    <h2 *ngIf="score < 50 && score > 20" style="color:orange">A decent start!</h2>
+    <h2 *ngIf="score <100 && score >= 50" style="color: black">Doing good!</h2>
+    <h2 *ngIf="score <200 && score >= 100" style="color:green">Great Job!</h2>
+    <h2 *ngIf="score >= 200" style="color:blue">GitHub Elite!</h2>
+</div>
