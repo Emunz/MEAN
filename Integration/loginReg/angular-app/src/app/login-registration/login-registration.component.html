@@ -1,0 +1,55 @@
+<div class="container">
+  <div class="inline five columns">
+    <h1>Register</h1>
+    <form (submit)="submitRegistration(); submissionForm.reset()" #submissionForm="ngForm">
+      <label>First Name: </label>
+      <input type="text" name="firstName" [(ngModel)]="user.firstName" #firstNameError="ngModel">
+
+      <label>Last Name: </label>
+      <input type="text" name="lastName" [(ngModel)]="user.lastName" #lastNameError="ngModel">
+
+      <label>Email: </label>
+      <input type="email" name="email" [(ngModel)]="user.email" #emailError="ngModel">
+
+      <label>Birthday: </label>
+      <input type="date" name="birthday" [(ngModel)]="user.birthday" #birthdayError="ngModel">
+
+      <label>Password:</label>
+      <input type="password" name="password" [(ngModel)]="user.password" #passwordError="ngModel">
+
+      <label>Confirm Password: </label>
+      <input type="password" name="confirmPassword" [(ngModel)]="user.confirmPassword" #confirmPasswordError="ngModel">
+      <br />
+      <br />
+      <input type="submit" value="Register">
+    </form>
+  </div>
+  <div class="inline five columns">
+    <h1>Log In</h1>
+    <form (submit)="submitLogin(); loginForm.reset()" #loginForm="ngForm">
+      <label>Email: </label>
+      <input type="email" name="email" [(ngModel)]="user.email" #emailError="ngModel">
+
+      <label>Password:</label>
+      <input type="password" name="password" [(ngModel)]="user.password" #passwordError="ngModel">
+      <br />
+      <br />
+      <input type="submit" value="Login">
+    </form>
+  </div>
+</div>
+
+<h1 *ngIf="loggedUser">USER: {{ loggedUser.firstName }} {{ loggedUser.lastName }}</h1>
+
+<hr />
+
+{{ user | json }}
+
+<hr />
+
+<h1 *ngIf="loggedUser.error">Errors: {{ loggedUser.error }}</h1>
+
+
+<hr />
+
+{{ loggedUser | json }}
