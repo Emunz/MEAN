@@ -1,0 +1,28 @@
+<div style="text-align: center">
+    <h1>Welcome, {{ currentUser.firstName }}</h1>
+</div>
+
+<div class="row topmargin">
+  <div class="col-md-6 col-sm-3 col-md-offset-3 col-sm-offset-3" style="border: 1px solid black; padding: 20px">
+    <h1 style="text-align: center">All Favorite Foods!</h1>
+
+    <div *ngIf="foodList != []" class="col-md-10 col-sm-8 col-md-offset-1 col-sm-offset-1">
+      <div *ngFor="let food of foodList" class="topmargin" style="border: 1px solid black; text-align: center; padding: 20px">
+        <h1>{{ food.dishName }}</h1>
+        <hr />
+        <h4>Added By: {{ food.nameOfCreator }}</h4>
+        <button class="btn" style="border: 1px solid rgb(128, 128, 128)" [routerLink]="['/food', food._id]">More Info!</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<button class="btn row col-md-2 col-md-offset-5 topmargin" 
+  style="border: 1px solid rgb(128, 128, 128)" 
+  [routerLink]="['/allfoods', 'addfood']"
+  >
+  Add Your Favorite Food!
+</button> 
+
+<router-outlet></router-outlet>

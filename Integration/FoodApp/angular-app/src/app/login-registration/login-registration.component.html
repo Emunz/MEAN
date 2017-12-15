@@ -1,0 +1,109 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-3 col-sm-3 col-md-offset-3 col-sm-offset-1 block" >
+      <form (submit)='submitRegistration(); registerForm.reset()' #registerForm="ngForm">
+        <div class="form-group">
+          <h1>Register</h1>
+          <label for="firstName">First Name:</label>
+          <input type="text" 
+            class="form-control" 
+            placeholder="First Name" 
+            name="firstName" 
+            required
+            minlength="2"
+            [(ngModel)]='newUser.firstName'
+            #firstName="ngModel">
+        </div>
+        <div class="form-group">
+          <label for="lastName">Last Name:</label>
+          <input type="text" 
+            class="form-control" 
+            placeholder="Last Name" 
+            name="lastName" 
+            required
+            minlength="2"
+            [(ngModel)]='newUser.lastName'
+            #lastName="ngModel">
+        </div>
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="text" 
+            class="form-control" 
+            placeholder="Email" 
+            name="email" 
+            minlength="4"
+            required
+            [(ngModel)]='newUser.email'
+            #email="ngModel">
+        </div>
+        <div class="form-group">
+          <label for="birthday">Birthday:</label>
+          <input type="date" 
+            class="form-control" 
+            name="birthday" 
+            required
+            [(ngModel)]='newUser.birthday'
+            #birthday="ngModel">
+        </div>
+        <div class="form-group">
+          <label for="password">Password:</label>
+          <input type="password" 
+            class="form-control" 
+            placeholder="Password" 
+            name="password" 
+            required
+            minlength="8"
+            [(ngModel)]='newUser.password'
+            #password="ngModel">
+        </div>
+        <div class="form-group">
+          <label for="confirmPassword">Confirm Password:</label>
+          <input type="password" 
+            class="form-control" 
+            placeholder="Password" 
+            name="confirmPassword" 
+            required
+            minlength="8"
+            [(ngModel)]='newUser.confirmPassword'
+            #confirmPassword="ngModel">
+        </div>
+        <input type="submit" value="Submit" [disabled]="registerForm.invalid" class="btn">
+      </form>
+    </div>
+
+    <!-- Login -->
+    
+      <div class="col-md-3 col-sm-3">
+        <form (submit)='submitLogin(); loginForm.reset()' #loginForm="ngForm">
+          <h1>Login</h1>
+          <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="text" 
+              class="form-control" 
+              placeholder="Email"
+              required
+              name="emailForLogin" 
+              [(ngModel)]='loginUser.emailForLogin'
+              #emailForLogin="ngModel">
+          </div>
+          <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" 
+              class="form-control" 
+              placeholder="Password" 
+              required
+              minlength="8"
+              name="passwordForLogin" 
+              [(ngModel)]='loginUser.passwordForLogin'
+              #passwordForLogin="ngModel">
+          </div>
+          <input type="submit" value="Login" [disabled]="loginForm.invalid" class="btn">
+        </form>
+        <br>
+        <br>
+        <div *ngIf="currentUser.errors">
+            <p class="error">*{{currentUser.errors}}</p>
+        </div>
+      </div>
+    </div> <!--closing tag for row class -->
+</div>

@@ -1,0 +1,41 @@
+<div style="text-align: center">
+    <h1>Welcome, {{ currentUser.firstName }}</h1>
+</div>
+
+<div class="row topmargin">
+  <div class="col-md-6 col-sm-3 col-md-offset-3 col-sm-offset-3" style="border: 1px solid black; padding: 20px; text-align: center">
+      <h1>{{ singleFood.dishName }}</h1>
+      <h4>Added By: {{ singleFood.nameOfCreator }}</h4>
+      <hr />
+      <h3>Description:</h3>
+      <p>{{ singleFood.description }}</p>
+
+      <h3>Ingredients:</h3>
+      <p>{{ singleFood.ingredients }}</p>
+
+      <h3>Country of Origin:</h3>
+      <p>{{ singleFood.country }}</p>
+  </div>
+</div>
+
+<div class="row">
+  <!-- Edit -->
+    <button class="btn row col-md-2 col-md-offset-5 topmargin" 
+      style="border: 1px solid rgb(128, 128, 128)" 
+      [routerLink]="['/food', singleFood._id, 'update']"
+      >
+      Edit
+    </button>
+  
+    <!-- Delete -->
+    <button class="btn row col-md-2 col-md-offset-5 topmargin" 
+    style="border: 1px solid rgb(128, 128, 128)" 
+    [routerLink]="['/food', singleFood._id, 'delete']"
+    >
+    Delete
+    </button> 
+</div>
+
+<div class="row">
+  <router-outlet></router-outlet>
+</div>

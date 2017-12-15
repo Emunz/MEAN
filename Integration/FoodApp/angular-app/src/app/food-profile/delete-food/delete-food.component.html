@@ -1,0 +1,19 @@
+<div class="row topmargin">
+    <div class="col-md-6 col-sm-3 col-md-offset-3 col-sm-offset-3" style="border: 1px solid black; padding: 20px; text-align: center">
+        <h1>Are you sure you want to delete?</h1>
+        
+        <button class="btn row col-md-2 col-md-offset-5 topmargin" 
+        style="border: 1px solid rgb(128, 128, 128)" 
+        (click)="clickDelete()"
+        >
+        Yes
+        </button>
+
+        <button class="btn row col-md-2 col-md-offset-5 topmargin" 
+        style="border: 1px solid rgb(128, 128, 128)" 
+        [routerLink]="['/food', foodID]"
+        >
+        No
+        </button>
+    </div>
+  </div>

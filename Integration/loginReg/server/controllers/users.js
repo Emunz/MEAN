@@ -11,29 +11,27 @@ module.exports = {
   // REGISTER
   register: function (req, res, err) {
     console.log("in the register method in controllers")
-    
-    if (err) {
-      console.log("error");
-      res.json({'error': "registration failed"})
-    } else {
-      var newUser = new User(req.body);
-      if (req.body.password === req.body.confirmPassword) {
-        newUser.save(function (err) {
-          if (err) {
-            console.log("something went wrong");
-            console.log(err);
-            res.json({'error': "passwords did not match"})
-          } else {
-            console.log("hit the save path")
-            req.session.currentUser = newUser;
-            console.log(req.sessions.currentUser)
-            res.json(req.session.currentUser)
-          }
-        });
-    } else {
-      res.json(err)
-    }
-  }
+      if (err) {
+        console.log("error");
+        res.json({'error': "registration failed"})
+      } else {
+        var newUser = new User(req.body);
+        if (req.body.password === req.body.confirmPassword) {
+          newUser.save(function (err) {
+            if (err) {
+              console.log("something went wrong");
+              console.log(err);
+            } else {
+              console.log("hit the save path")
+              req.session.currentUser = newUser;
+              console.log(req.sessions.currentUser)
+              res.json(req.session.currentUser)
+            }
+          });
+        } else {
+          res.json({'error': "passwords did not match"})
+        }
+      }
   },
   // LOGIN
   login: function (req, res) {

@@ -1,0 +1,71 @@
+<div class="row topmargin">
+
+        <form (submit)="submitUpdateForm()" 
+        #updateForm="ngForm" 
+        class="topmargin col-md-6 col-sm-3 col-md-offset-3 col-sm-offset-3" 
+        style="border: 1px solid black; text-align: center">
+      
+        <h3>What Changes Would You Like To Make?</h3>
+        <div class="form-group">
+          <label for="dish">Dish Name:</label>
+          <input type="text"
+            required
+            minlength="2"
+            maxlength="25"
+            name="dish"
+            [(ngModel)]="food.dishName"
+            #dishNameError="ngModel"
+            class="ng-untouched ng-pristine ng-invalid form-control"
+            style="text-align: center"
+          >
+          <span *ngIf="dishNameError.errors && dishNameError.invalid && dishNameError.dirty" class="error">Dish Name is required, must be at least 2 characters</span>
+        </div>
+      
+        <div class="form-group">
+            <label for="description">Description:</label>
+            <input type="text"
+              required
+              minlength="2"
+              maxlength="70"
+              name="description"
+              [(ngModel)]="food.description"
+              #descriptionError="ngModel"
+              class="ng-untouched ng-pristine ng-invalid form-control"
+              style="text-align: center"
+            >
+            <span *ngIf="descriptionError.errors && descriptionError.invalid && descriptionError.dirty" class="error">Description is required, must be at least 2 characters</span>
+          </div>
+      
+        <div class="form-group">
+          <label for="ingredients">Ingredients:</label>
+          <input type="text"
+            required
+            maxlength="50"
+            name="ingrediets"
+            [(ngModel)]="food.ingredients"
+            #ingredientsError="ngModel"
+            class="ng-untouched ng-pristine ng-invalid form-control"
+            style="text-align: center"
+          >
+          <span *ngIf="ingredientsError.errors && ingredientsError.invalid && ingredientsError.dirty" class="error">Ingredients are required, max of 50 characters</span>
+        </div>
+      
+        <div class="form-group">
+          <label for="country">Country of Origin:</label>
+          <input type="text"
+            required
+            minlength="2"
+            maxlength="40"
+            name="country"
+            [(ngModel)]="food.country"
+            #countryError="ngModel"
+            class="ng-untouched ng-pristine ng-invalid form-control"
+            style="text-align: center"
+          >
+          <span *ngIf="countryError.errors && countryError.invalid && countryError.dirty" class="error">Country of Origin is required</span>
+        </div>
+        
+        <input type="submit" [disabled]="updateForm.invalid" class="btn form-group" style="margin-bottom: 10px">
+      
+      </form>
+</div>
